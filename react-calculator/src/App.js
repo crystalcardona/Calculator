@@ -1,12 +1,12 @@
 import React from 'react';
 import Keypad from './components/Keypad'
-import Result from './components/Result'
+import Display from './components/Display'
 
 
 function App() {
   return (
     <div className="App">
-    < Result />
+    < Display />
     < Keypad />
     </div>
   );

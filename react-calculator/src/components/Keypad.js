@@ -3,69 +3,40 @@ import './css/Keypad.css';
 
 class Keypad extends React.Component{
 
+
     render(){
+        debugger
         return(
             <div className="keypad">
-            {/* <div className="row1"> */}
-            <div className='bAC'>
-                <button name="AC">AC</button>
+            <div className="row1">
+                <button name="AC" onClick={e => this.props.OnClick(e.target.name)}>AC</button>
+                <button name="%" onClick={e => this.props.OnClick(e.target.name)}>%</button>
+                <button name="+/-" onClick={e => this.props.OnClick(e.target.name)}> +/-</button>
+                <button id="divide" name="/" onClick={e => this.props.OnClick(e.target.name)}><span>&#247;</span></button>
             </div>
-            <div className="b%">
-                <button name="%">%</button>
+            <div className="row2">
+                <button name="7" onClick={e => this.props.OnClick(e.target.name)}>7</button>
+                <button name="8" onClick={e => this.props.OnClick(e.target.name)}>8</button>
+                <button name="9" onClick={e => this.props.OnClick(e.target.name)}>9</button>
+                <button id="multiply" name="multiply" onClick={e => this.props.OnClick(e.target.name)}>X</button>
             </div>
-            <div className="divide">
-                <button id="divide" name="b/" ><span>&#247;</span></button>
+            <div className="row3">
+                <button name="4" onClick={e => this.props.OnClick(e.target.name)}>4</button> 
+                <button name="5" onClick={e => this.props.OnClick(e.target.name)}>5</button>
+                <button name="6" onClick={e => this.props.OnClick(e.target.name)}>6</button>
+                <button id="minus" onClick={e => this.props.OnClick(e.target.name)}name="-">-</button>
             </div>
-            <div className="b+-">
-                <button name="+-"> +-</button>
-                {/* </div> */}
+            <div className="row4">
+                <button name="1" onClick={e => this.props.OnClick(e.target.name)}>1</button>
+                <button name="2" onClick={e => this.props.OnClick(e.target.name)}>2</button>
+                <button name="3" onClick={e => this.props.OnClick(e.target.name)}>3</button>
+                <button id="plus" name="+" onClick={e => this.props.OnClick(e.target.name)} >+</button>
             </div>
-            <div className="b7">
-                <button name="7">7</button>
+            <div className="row5">
+                <button name="0" onClick={e => this.props.OnClick(e.target.name)}>0</button>
+                <button name="." onClick={e => this.props.OnClick(e.target.name)}>.</button>
+                <button id="equal" name="=" onClick={e => this.props.OnClick(e.target.name)}>=</button>
             </div>
-            <div className="b8">
-                <button name="8">8</button>
-            </div>
-            <div className="b9">
-                <button name="9">9</button>
-            </div>
-            <div className="multiply">
-                <button id="multiply" name="multiply">X</button>
-            </div>
-            <div className="b4">
-                <button name="4">4</button>
-            </div>
-            <div className="b5">
-                <button name="5">5</button>
-            </div>
-            <div className="b6">
-                <button name="6">6</button>
-            </div>
-            <div className="minus">
-                <button id="minus" name="-">-</button>
-            </div>
-            <div className="b1">
-                <button name="1">1</button>
-            </div>
-            <div className="b2">
-                <button name="2">2</button>
-            </div>
-            <div className="b3">
-                <button name="3">3</button>
-            </div>
-            <div className="plus">
-                <button id="plus" name="+">+</button>
-            </div>
-            <div className="b0">
-                <button name="0">0</button>
-            </div>
-            <div className="b.">
-                <button name=".">.</button>
-            </div>
-            <div className="b=">
-                <button id="equal" name="=">=</button>
-            </div>
-
             </div>
         )
     }
