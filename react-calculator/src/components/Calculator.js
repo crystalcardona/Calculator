@@ -1,22 +1,42 @@
 import React from 'react';
 
-class Calculator extends React.Component{
-    state ={
-        keys: [1,2,3,4,5,6,7,8,9,0],
-        displayVale:0,
-        previousValue:0,
-        operator: ''
+
+const Calculate = (numInput1, numInput2, operator) => {
+        let numInp1 = Number(numInput1)
+        let numInp2 = Number(numInput2)
+        if(operator === "x"){
+            multiplicationOperator(numInp1, numInp2)
+        }
+        else if(operator === "/"){
+            divisionOperator(numInp1, numInp2)
+        }
+        else if(operator === "-"){
+            minusOperator(numInp1, numInp2)
+        }
+        else if(operator === "-"){
+            addingOperator(numInp1, numInp2)
+        }
+
     }
 
-    
 
-    render(){
-        return (
-            <div>
-
-            </div>
-        )
+    const multiplicationOperator = (displayValue, previousValue) => {
+        return  displayValue * previousValue
     }
-}
 
-export default Calculator;
+    const divisionOperator = (displayValue, previousValue) => {
+        return displayValue/previousValue
+    }
+
+    const addingOperator = (displayValue, previousValue) => {
+        return displayValue + previousValue
+    }
+
+    const minusOperator = (displayValue, previousValue) => {
+        return displayValue - previousValue 
+    }
+
+
+
+
+export default Calculate;
