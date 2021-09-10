@@ -5,16 +5,16 @@ const Calculate = (numInput1, numInput2, operator) => {
         let numInp1 = Number(numInput1)
         let numInp2 = Number(numInput2)
         if(operator === "x"){
-            multiplicationOperator(numInp1, numInp2)
+            return multiplicationOperator(numInp1, numInp2)
         }
         else if(operator === "/"){
-            divisionOperator(numInp1, numInp2)
+            return divisionOperator(numInp1, numInp2)
         }
         else if(operator === "-"){
-            minusOperator(numInp1, numInp2)
+            return minusOperator(numInp1, numInp2)
         }
         else if(operator === "+"){
-            addingOperator(numInp1, numInp2)
+            return addingOperator(numInp1, numInp2)
         }
 
     }
