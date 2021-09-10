@@ -1,46 +1,68 @@
 import React from 'react';
 import './css/Keypad.css';
+import Display from './Display'
 import calculate from './Calculator';
 
 class Keypad extends React.Component{
 
     state ={
-        displayValue:"",
+        numberValue:[],
         previousValue: "",
-        operator: ''
+        operator: "",
+        display: 0
     }
+
+    convertNumber = (number) => {
+        let newNumber = -Math.abs(number);
+        this.setState({
+            numberValue: [newNumber],
+            display: newNumber
+        })
+    }
+
+    clearKeypad = () => {
+        this.setState({
+            display: '0'
+        })
+    }
+
 
     handleOperator = (e) => {
         e.preventDefault()
-        this.setState({displayValue: "", previousValue: this.state.displayValue, operator: e.target.value})
+        this.setState({numberValue: [""], previousValue: this.state.numberValue, operator: e.target.value})
     }
 
     handleNumber = (e) => {
         e.preventDefault();
-        this.setState({displayValue:e.target.value, previousValue: e.target.value} )
+        let currentValue = this.state.numberValue
+        currentValue += e.target.value
+        this.setState({numberValue:[currentValue], previousValue: currentValue} )
     }
 
     equals = () => {
         const {displayValue, previousValue, operator} = this.state
         let results = calculate(displayValue, previousValue, operator)
-        this.setState({displayValue: results})
+        this.setState({numberValue: results})
     }
 
     acOperator = () => {
-        this.setState({displayValue:0,
+        this.setState({numberValue:0,
             previousValue: [],
             operator: ''})
     }
 
     render(){
         debugger
+        let {numberValue, previousValue, operator, display } = this.state
         console.log(this.state)
         return(
             <div className="keypad">
+            <Display display={display} />
+            <form>
             <div className="row1">
-                <button value="AC" onClick={this.handleNumber}>AC</button>
-                <button value="+/-" onClick={this.handleNumber}> +/-</button>
-                <button value="/" onClick={this.handleNumber}>/</button>
+                {/* <button value="AC" onClick={this.handl}>AC</button> */}
+                <button value="+/-"> +/-</button>
+                <button value="/">/</button>
             </div>
             <div className="row2">
                 <button value="7" onClick={this.handleNumber}>7</button>
@@ -64,6 +86,7 @@ class Keypad extends React.Component{
                 <button value="0" onClick={this.handleNumber}>0</button>
                 <button value="=" name="=" onClick={this.equals}>=</button>
             </div>
+            </form>
             </div>
         )
     }
