@@ -5,7 +5,7 @@ const Display = ({display}) => {
 
     return (
         <div>
-            <p>{display.toLocaleString()}</p>
+            <p>{Number(display).toLocaleString()}</p>
         </div>
     )
 }
@@ -14,4 +14,4 @@ const Display = ({display}) => {
 
 
 
-export default Result
+export default Display; 
