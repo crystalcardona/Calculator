@@ -1,20 +1,15 @@
 import React from 'react';
 import './css/Display.css'
 
-class Result extends React.Component{
-    state = {
+const Display = ({display}) => {
 
-    }
-
-
-    render(){
-        return(
-            <div>
-                <p className="display">0</p>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <p>{display.toLocaleString()}</p>
+        </div>
+    )
 }
+
 
 
 

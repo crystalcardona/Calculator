@@ -13,7 +13,7 @@ const Calculate = (numInput1, numInput2, operator) => {
         else if(operator === "-"){
             minusOperator(numInp1, numInp2)
         }
-        else if(operator === "-"){
+        else if(operator === "+"){
             addingOperator(numInp1, numInp2)
         }
 
