@@ -1,17 +1,17 @@
 
-const Calculate = (numInput1, numInput2, operator) => {
+const calculate = (numInput1, numInput2, op) => {
         let numberValue = Number(numInput1)
         let previousValue = Number(numInput2)
-        if(operator === "x"){
+        if(op === "x"){
             return multiplicationOperator(numberValue, previousValue)
         }
-        else if(operator === "/"){
+        else if(op === "/"){
             return divisionOperator(numberValue, previousValue)
         }
-        else if(operator === "-"){
+        else if(op === "-"){
             return minusOperator(numberValue, previousValue)
         }
-        else if(operator === "+"){
+        else if(op === "+"){
             return addingOperator(numberValue, previousValue)
         }
 
@@ -23,7 +23,7 @@ const Calculate = (numInput1, numInput2, operator) => {
     }
 
     const divisionOperator = (numberValue, previousValue) => {
-        return numberValue/previousValue
+        return numberValue / previousValue
     }
 
     const addingOperator = (numberValue, previousValue) => {
@@ -37,4 +37,4 @@ const Calculate = (numInput1, numInput2, operator) => {
 
 
 
-export default Calculate;
+export default calculate;
