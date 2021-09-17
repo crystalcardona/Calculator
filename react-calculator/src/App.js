@@ -1,6 +1,6 @@
 import React from 'react';
 import Keypad from './components/Keypad'
-import Display from './components/Display'
+import '../src/App.css'
 
 
 function App() {

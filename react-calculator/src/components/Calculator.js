@@ -1,5 +1,6 @@
 
 const calculate = (numInput1, numInput2, op) => {
+    debugger
         let numberValue = Number(numInput1)
         let previousValue = Number(numInput2)
         if(op === "x"){

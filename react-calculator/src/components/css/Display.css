@@ -1,5 +1,8 @@
 .display {
-    background-color: darkslategrey; 
-    width: 50%;
-    height: 60px;
+    background-color: rgb(73, 142, 142); 
+    color: white;
+    width: 314px;
+    height: 80px;
+    font-size: 30px;
+    display:flex;
 }

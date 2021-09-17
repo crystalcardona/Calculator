@@ -12,18 +12,29 @@ class Keypad extends React.Component{
         display: 0
     }
 
-    convertNumber = (number) => {
-        let newNumber = -Math.abs(number);
+    convertNegative = (number) => {
+        let newNumber = number * -1;
         this.setState({
             numberValue: [newNumber],
             display: newNumber
         })
     }
 
+    convertPercentage = (number) => {
+        let newNumber = number / 100
+        this.setState({
+            numberValue: [newNumber] , 
+            display:newNumber
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+    }
 
     handleOperator = (e) => {
         e.preventDefault()
-        this.setState({numberValue: [""], previousValue: this.state.numberValue, operator: e.target.value})
+        this.setState({numberValue: [], previousValue: this.state.numberValue, operator: e.target.value})
         debugger
     }
 
@@ -40,45 +51,48 @@ class Keypad extends React.Component{
     }
 
     handleAc = () => {
-        this.setState({numberValue:0,
-            previousValue: [],
-            operator: ''})
+        this.setState({numberValue:[],
+            previousValue: "",
+            operator: "",
+            display:null})
     }
 
     render(){
-        debugger
+
         let {numberValue, previousValue, operator, display } = this.state
-        console.log(this.state)
+
         return(
             <div className="keypad">
             <Display display={display} />
-            <form>
+            <form onClick={this.handleSubmit}>
             <div className="row1">
-                <button value="AC" onClick={this.handleAc}>AC</button>
-                <button value="/" onClick={this.handleOperator}>/</button>
+                <button className="ac" value="AC" onClick={this.handleAc}>AC</button>
+                <button value="+/-" className="negative" onClick={() => this.convertNegative(numberValue)}>+/-</button>
+                <button value="%" className="percentage" onClick={()=>this.convertPercentage(numberValue)}>%</button>
                 </div>
                 <div className="row2">
                 <button value="7" onClick={this.handleNumber}>7</button>
                 <button value="8" onClick={this.handleNumber}>8</button>
                 <button value="9" onClick={this.handleNumber}>9</button>
-                <button value="x" name="x" onClick={this.handleOperator}>X</button>
+                <button value="x" className="multiply" onClick={this.handleOperator}>x</button>
                 </div>
                 <div className="row3">
                 <button value="4" onClick={this.handleNumber}>4</button> 
                 <button value="5" onClick={this.handleNumber}>5</button>
                 <button value="6" onClick={this.handleNumber}>6</button>
-                <button value="-" onClick={this.handleOperator} name="-">-</button>
+                <button value="-" className="minus" onClick={this.handleOperator} name="-">-</button>
                 </div>
                 <div className="row4">
                 <button value="1" onClick={this.handleNumber}>1</button>
                 <button value="2" onClick={this.handleNumber}>2</button>
                 <button value="3" onClick={this.handleNumber}>3</button>
-                <button value="+" name="+" onClick={this.handleOperator} >+</button>
+                <button value="+" className="plus" onClick={this.handleOperator} >+</button>
                 </div>
                 <div className="row5">
                 <button value="0" onClick={this.handleNumber}>0</button>
-                <button value="=" onClick={this.handleEquals(previousValue, numberValue, operator)}>=</button>
-                </div>
+                <button value="=" className="equal" onClick={() => this.handleEquals(previousValue, numberValue, operator)}>=</button>
+                <button value="/" className="divide" onClick={this.handleOperator}>/</button>
+                </div> 
                 </form>
             </div>
         )
@@ -86,14 +100,6 @@ class Keypad extends React.Component{
 }
 
 export default Keypad;
-
-
-{/* <div className="row2">
-<button value="7" >7</button>
-<button value="8" >8</button>
-<button value="9">9</button>
-</div> */}
-
 
 
 

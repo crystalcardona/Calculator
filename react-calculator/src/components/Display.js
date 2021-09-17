@@ -4,8 +4,8 @@ import './css/Display.css'
 const Display = ({display}) => {
 
     return (
-        <div>
-            <p>{Number(display).toLocaleString()}</p>
+        <div className="display">
+            <p>{Number(display)}</p>
         </div>
     )
 }

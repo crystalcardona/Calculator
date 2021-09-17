@@ -1,12 +1,29 @@
 button {
-    background-color: darkgrey;
-    width: 15%;
-    height: 60px;
-    color: white;  
-    font-weight: bolder;
-    font-size: 30px;
+    background-color: rgba(225, 91, 61, 0.838);
+    border: none;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 75px;
+    box-shadow: 2px .5px 1px rgb(159, 98, 66);
 }
 
+.equal{
+    width:154px;
+}
+.ac, .negative, .percentage {
+    background-color: burlywood;
+}
+
+.ac{
+    width: 154px;
+}
 span {
     background-color: darkgrey;
     width: 20%;
@@ -14,6 +31,13 @@ span {
 
 
 
-#plus, #equal, #minus, #multiply, #divide {
+
+.plus, .equal, .minus, .multiply, .divide {
     background-color: orange;
+}
+
+.keypad {
+    border-style: groove;
+    padding: 10px;
+    border-radius: 5px;
 }
